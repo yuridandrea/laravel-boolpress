@@ -17,6 +17,8 @@ Route::get('/','HomeController@index')->name('guest-homepage');
 route::get('/posts', 'PostController@index')->name('posts.index');
 route::get('/posts/{slug}', 'PostController@show')->name('posts.show');
 
+route::get('/categories', 'CategoryController@index')->name('category.index');
+route::get('/categories/{slug}', 'CategoryController@show')->name('category.show');
 
 Auth::routes();
 
