@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,15 @@ Route::prefix('admin')
   ->group(function () {
     Route::get('/', 'HomeController@index')
     ->name('admin-homepage');
+    Route::resource('/posts', PostController::class)->names([
+      'index' => 'admin.posts.index',
+      'create' => 'admin.posts.create',
+      'update' => 'admin.posts.update',
+      'edit' => 'admin.posts.edit',
+      'show' => 'admin.posts.show',
+      'store' => 'admin.posts.store',
+      'destroy' => 'admin.posts.destroy'
+    ]);
   });
 
 // Route::get('/admin', 'HomeController@index')->name('admin-homepage')->middleware('auth');
